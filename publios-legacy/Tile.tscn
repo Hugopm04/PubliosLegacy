@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5co8txt28gqw"]
+
+[ext_resource type="Script" uid="uid://b056e5w10yb2g" path="res://tile.gd" id="1_j13wd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j13wd"]
+bg_color = Color(0.35166398, 0.6873549, 0.40340084, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+
+[node name="Tile" type="Panel"]
+offset_right = 100.0
+offset_bottom = 100.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_j13wd")
+script = ExtResource("1_j13wd")

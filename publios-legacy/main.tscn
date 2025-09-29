@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://d1q3k1jm34q0p"]
+[gd_scene load_steps=7 format=3 uid="uid://d1q3k1jm34q0p"]
 
 [ext_resource type="Script" uid="uid://dj4xttw820y3m" path="res://player.gd" id="1_0xm2m"]
+[ext_resource type="Script" uid="uid://bps2181h0u43r" path="res://main.gd" id="1_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://bc3ekss1bi4ed" path="res://Sprites/Player spritre.png" id="2_h2yge"]
 [ext_resource type="Texture2D" uid="uid://dxed2ps5r1kdm" path="res://Sprites/Obstacle sprite.png" id="3_h2yge"]
 
@@ -11,6 +12,7 @@ size = Vector2(32, 32)
 size = Vector2(32, 32)
 
 [node name="Root" type="Node2D"]
+script = ExtResource("1_1bvp3")
 
 [node name="Player" type="CharacterBody2D" parent="."]
 script = ExtResource("1_0xm2m")
@@ -32,3 +34,21 @@ texture = ExtResource("3_h2yge")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle"]
 position = Vector2(415, 105)
 shape = SubResource("RectangleShape2D_h2yge")
+
+[node name="Map" type="Node2D" parent="."]
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="TurnLabel" type="Label" parent="UI"]
+offset_left = 1112.0
+offset_top = 1.0
+offset_right = 1152.0
+offset_bottom = 24.0
+
+[node name="EndTurnButton" type="Button" parent="UI"]
+offset_left = 1104.0
+offset_top = 64.0
+offset_right = 1135.0
+offset_bottom = 80.0
+
+[connection signal="pressed" from="UI/EndTurnButton" to="." method="_on_EndTurnButton_pressed"]
