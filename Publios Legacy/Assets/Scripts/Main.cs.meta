@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 4cf2aaf53ea053f40a7d8073dac982cc
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - tilePrefab: {instanceID: 0}
+  - mapParent: {instanceID: 0}
+  - turnLabel: {instanceID: 0}
+  - endTurnButton: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
