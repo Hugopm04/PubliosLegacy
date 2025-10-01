@@ -1,1 +1,0 @@
-Moved to Unity. Got the turn label and buttons working but not the map generation. For the map Im using a GameObject but it is inefficient and at some point I should move to a tilemap.

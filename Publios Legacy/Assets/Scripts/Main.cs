@@ -12,7 +12,7 @@ public class Main : MonoBehaviour
     private int turn = 1;
     private int rows = 5;
     private int cols = 5;
-    private float tileSize = 100f;
+    private const float TILE_SIZE = 50f;
 
     void Start()
     {
@@ -24,21 +24,32 @@ public class Main : MonoBehaviour
 
     void GenerateMap()
     {
+        float mapWidth = cols * TILE_SIZE;
+        float mapHeight = rows * TILE_SIZE;
+
+        float startX = -mapWidth / 2 + TILE_SIZE / 2;
+        float startY = mapHeight / 2 - TILE_SIZE / 2;
+
         for (int y = 0; y < rows; y++)
         {
             for (int x = 0; x < cols; x++)
             {
                 GameObject tileObj = Instantiate(tilePrefab, mapParent);
                 RectTransform rt = tileObj.GetComponent<RectTransform>();
-                rt.anchoredPosition = new Vector2(x * tileSize, -y * tileSize);
 
-                // Añadimos botón dinámico a la casilla
-                Button b = tileObj.gameObject.AddComponent<Button>();
+                // Ajustar tamaño del tile al tileSize
+                rt.sizeDelta = new Vector2(TILE_SIZE, TILE_SIZE);
+
+                // Posición centrada
+                rt.anchoredPosition = new Vector2(startX + x * TILE_SIZE, startY - y * TILE_SIZE);
+
+                // Añadir botón para que responda al click
+                Button b = tileObj.AddComponent<Button>();
                 Tile tileScript = tileObj.GetComponent<Tile>();
                 b.onClick.AddListener(() => tileScript.ToggleSelection());
             }
         }
-    }
+}
 
     void OnEndTurnPressed()
     {
